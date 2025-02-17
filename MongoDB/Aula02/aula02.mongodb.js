@@ -18,3 +18,32 @@ db.categorias.insertMany([
     { nome: 'Entradas', ativo: true },
     { nome: 'Pães', ativo: true }
 ])
+
+use('estoque')
+db.produtos.insertOne({
+    _id: '124',
+    nome: 'Hámburger Gourmet',
+    preco: 35.99,
+    ingredientes: ["pão", "carne", "queijo", "alface", "tomate"],
+    vegetariano: false,
+    dataCadastr: new Date(),
+    calorias: {
+        total: 780,
+        porcoes: 1
+    }
+})
+use('estoque')
+db.produtos.find()
+use('estoque')
+db.produtos.insertOne({ abobrinha: "tem" })
+use('estoque')
+db.produtos.drop()  //drop da collection
+use('estoque')
+db.createCollection('produtos',{
+    validator:{
+        $jsonSchema:{
+            'bsonType':'object',
+            'required':['_id','nome','preco','ingredientes','vegetariano','dataCadastro']
+        }
+    }
+})
