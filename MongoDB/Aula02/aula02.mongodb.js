@@ -26,24 +26,38 @@ db.produtos.insertOne({
     preco: 35.99,
     ingredientes: ["pão", "carne", "queijo", "alface", "tomate"],
     vegetariano: false,
-    dataCadastr: new Date(),
+    dataCadastro: new Date(),
     calorias: {
         total: 780,
         porcoes: 1
     }
 })
+
 use('estoque')
 db.produtos.find()
+
 use('estoque')
 db.produtos.insertOne({ abobrinha: "tem" })
+
 use('estoque')
 db.produtos.drop()  //drop da collection
+
 use('estoque')
-db.createCollection('produtos',{
-    validator:{
-        $jsonSchema:{
-            'bsonType':'object',
-            'required':['_id','nome','preco','ingredientes','vegetariano','dataCadastro']
+db.createCollection('produtos', {
+    validator: {
+        $jsonSchema: {
+            'bsonType': 'object',
+            'required': ['_id', 'nome', 'preco', 'ingredientes', 'vegetariano', 'dataCadastro']
         }
     }
 })
+//Obter as informações da Collection
+use('estoque')
+db.getCollectionInfos({ name: 'produtos' })
+
+use('estoque')
+try{
+db.produtos.insertOne({ abobrinha: "tem" })
+}catch(err){
+    printjson(err)
+}
