@@ -13,6 +13,7 @@ Maior igual que(=>) --> $gte
 Menor que(<) --> $lt  
 Menor igual que(=<) --> $lte  
 Regex --> //  
+IN --> $in  
 *Lógicos*  
 AND --> $and  
 OR --> $or  
