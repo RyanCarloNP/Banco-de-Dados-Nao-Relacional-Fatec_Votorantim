@@ -14,6 +14,7 @@ Maior igual que(=>) --> $gte
 Menor que(<) --> $lt  
 Menor igual que(=<) --> $lte  
 IN --> $in  
+!=(diferente de) --> $nor
   
 *Lógicos*  
 |-------------------------|  
