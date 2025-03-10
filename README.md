@@ -41,5 +41,5 @@ $pull
 ASC (ascendente) --> de A até Z 
 DESC (descadente) --> de Z até A    
 
-*limit()* é utilizado para limitar o nº de documentos que seram carregados da coleção. 
-*skip()* é utilizado para pular um certo nº de documentos na coleção.   
+*limit()* é utilizado para limitar o nº de documentos que seram carregados da coleção.  
+*skip()* é utilizado para pular um certo nº de documentos na coleção.
