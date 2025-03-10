@@ -178,6 +178,7 @@ db.funcionarios.find(
 use('Funcionarios')
 db.funcionarios.find(
     { projetos: { $size: { $gt: 1 } } }
+    //{ projetos: { $gt: [{size: "$projetos"}, 1] } }
 )
 //Ex17
 use('Funcionarios')
