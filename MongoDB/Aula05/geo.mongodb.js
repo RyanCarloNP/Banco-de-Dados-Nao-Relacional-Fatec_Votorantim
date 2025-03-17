@@ -15,7 +15,7 @@ db.estados.find().forEach(function (estado) {
     )
 })
 /*
-{
+  {
     "_id": {
       "$oid": "67cf6d0c04b4e1387ad9caf8"
     },
