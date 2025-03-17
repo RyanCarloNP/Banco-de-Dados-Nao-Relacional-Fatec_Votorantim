@@ -1,4 +1,4 @@
-use('Estados')
+use('estoque')
 const estados = [
     {
         "codigo_uf": 11,
@@ -192,10 +192,10 @@ const estados = [
 ]
 db.estados.insertMany(estados)
 
-use('Estados')
+use('estoque')
 db.estados.find().count()   //27
 
-use('Estados')
+use('estoque')
 db.estados.find({}, { uf: 1, nome: 1, _id: 0 })
     .sort({ nome: 1 }) //Ordenação
     .limit(5)   //Limita o retorno de nº de registros
