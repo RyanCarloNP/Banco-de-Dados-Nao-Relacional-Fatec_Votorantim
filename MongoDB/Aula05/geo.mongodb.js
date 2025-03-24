@@ -1,3 +1,4 @@
+//Criando o campo local
 use('estoque')
 db.estados.find()
 db.estados.find().forEach(function (estado) {
@@ -18,7 +19,7 @@ db.estados.find().forEach(function (estado) {
 use('estoque')
 db.estados.find({}, { local: 1 })
 
-//Criando o indece 2dSphere
+//Criando o index 2dSphere
 use('estoque')
 db.estados.createIndex({ local: "2dsphere" })
 
@@ -48,3 +49,26 @@ db.estados.find({
         }
     }
 }, { nome: 1, _id: 0 })
+
+use('estoque')
+db.municipios.find({},{_id:0, nome:1})
+
+//Criando o campo local
+use('estoque')
+db.municipios.find().forEach(function (municipio) {
+    db.municipios.updateOne(
+        {_id : municipio._id},
+        {$set : {
+            local : {
+                type : 'Point',
+                coordinates : [municipio.longitude, municipio.latitude]
+            }
+        },
+        $unset : {latitude: "", longitude : ""}
+    }
+    )
+})
+
+//Criando o index 2dSphere
+use('estoque')
+db.municipios.createIndex({ local: "2dsphere" })
